@@ -15,6 +15,12 @@ import jwt from "jsonwebtoken";
 const app = express();
 app.use(express.json());
 
+app.get("/health",(req,res)=>{
+    res.json({
+        message:"Healthy API"
+    })
+})
+
 app.post("/signup", (req, res) => {
   const data = CreateUserSchema.safeParse(req.body);
   if (!data.success) {
