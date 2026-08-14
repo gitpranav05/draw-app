@@ -1,0 +1,27 @@
+{
+  "name": "@repo/db",
+  "exports": {
+    "./client": "./src/db.ts"
+  },
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "prisma generate && tsc -b",
+    "postinstall": "prisma generate"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/adapter-pg": "^7.9.1",
+    "@prisma/client": "^7.9.1",
+    "@types/pg": "^8.21.0",
+    "pg": "^8.23.0",
+    "prisma": "^7.9.1"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*"
+  }
+}

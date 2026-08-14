@@ -8,6 +8,10 @@ import {
 
 import express from "express";
 
+import { prismaClient } from "@repo/db/client";
+
+const prisma = prismaClient;
+
 import { auth } from "./auth";
 
 import jwt from "jsonwebtoken";
@@ -29,6 +33,18 @@ app.post("/signup", (req, res) => {
     });
     return;
   }
+
+  prisma.user.create({
+    data:{
+        email:data.data?.username,
+        password:data.data.password,
+        name:data.data?.name,
+    }
+  })
+
+  
+
+
   res.json({
     id: "123",
   });
